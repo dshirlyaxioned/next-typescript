@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { CarProps } from "../types";
-import { CustomButton } from ".";
+import { CarDetails, CustomButton } from ".";
 import { calculateCarRent } from "../utils";
 
 interface CarCardProps {
@@ -30,7 +30,7 @@ const CarCard = ({ car }: CarCardProps) => {
         <span className="self-end text-[14px] font-medium">/day</span>
       </p>
       <div className="relative w-full h-40 my-3 object-contain">
-        <Image src="/hero.png" alt="car model" fill priority />
+        <Image src="/hero.png" alt="car model" fill priority className="object-contain" />
       </div>
 
       <div className="relative flex w-full mt-2">
@@ -66,6 +66,8 @@ const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
+
+      <CarDetails car={car} isOpen={isOpen} closeModal={() => setIsOpen(false)} />
     </div>
   );
 };
